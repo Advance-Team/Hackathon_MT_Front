@@ -36,3 +36,18 @@ ion-slides {
   p b {
     color: var(--ion-text-color, #000000);
   }
+
+  .loginPage > ion-item{
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 75%;
+  }
+  .loginPage > h3{
+    color: #BBBBBB;
+  }
+  .loginPage > .active{
+    color: #494B59;
+  }

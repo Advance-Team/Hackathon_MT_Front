@@ -32,13 +32,20 @@
 }
 
 .profileList > ion-button {
-    --background: black;
+    --background: #20C3AF;
     --color: white !important;
     width: 70%;
     height: 40px;
     align-items: center;
     align-content: center;
     text-align: center;
+}
+
+.profileList > ion-button.gosuslugi {
+    --background: white;
+    --color: black !important;
+    border: 2px solid black;
+    border-radius: 3%;
 }
 
 .profileList > ion-item > ion-button > *{
@@ -51,10 +58,6 @@
     align-content: center;
     align-tracks: center;
     text-align: center;
-}
-
-.profileList > ion-button{
-    border-radius: 40%;
 }
 
 .profileList ion-select{

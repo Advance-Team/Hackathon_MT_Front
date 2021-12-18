@@ -129,7 +129,7 @@ ion-item.selected {
 
 ion-menu ion-item{
   --color: white;
-  --background: #000000;
+  --background: #20C3AF;
   margin-top: 25px;
   margin-bottom: 25px;
   margin-left: 20px;
@@ -147,10 +147,10 @@ ion-menu ion-list:first-child > .item-bottom{
   display: none;
 }
 
-ion-menu .line{
+hr.line{
   width: 80%;
   height: 0px;
   align-self: center;
-  border: 1px solid #000000;
-  color: #000000;
+  border: 1px solid #494B59;
+  color: #20C3AF;
 }

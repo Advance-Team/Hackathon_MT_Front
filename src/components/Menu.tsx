@@ -85,7 +85,7 @@ const Menu: React.FC = () => {
                   </table>
                 </IonItem>
                 :
-                <IonItem onClick={() => { present() }}>
+                <IonItem routerLink='/Login' routerDirection="none" lines="none" detail={false}>
                   <IonLabel>Войти</IonLabel>
                 </IonItem>
             }

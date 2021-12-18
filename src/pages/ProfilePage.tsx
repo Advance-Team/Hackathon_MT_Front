@@ -42,7 +42,7 @@ const ProfilePage: React.FC = () => {
                         <IonInput type='email' placeholder="Email@mail.ru"></IonInput>
                     </IonItem>
 
-                    <h2><b>ИНН</b></h2>
+                    <h2><b>Реквизиты</b></h2>
                     <IonItem lines='none'>
                         <IonInput type='number' placeholder="ИНН"></IonInput>
                     </IonItem>
@@ -86,8 +86,9 @@ const ProfilePage: React.FC = () => {
                     <IonItem lines='none'>
                         <IonInput placeholder="Когда выдан"></IonInput>
                     </IonItem>
-                    {/* <IonButton>Подробнее</IonButton> */}
+                    <br />
                     <IonButton>Редактировать</IonButton>
+                    <IonButton>Выход</IonButton>
                 </IonList>
             </IonContent>
         </IonPage>

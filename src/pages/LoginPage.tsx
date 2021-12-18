@@ -1,38 +1,75 @@
-import { IonButton, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonInput, IonLabel } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { useState } from 'react';
 import { useParams } from 'react-router';
+import ExploreContainer from '../components/ExploreContainer';
 import './Page.css';
 
-const LoginPage: React.FC = () => {
-  var [LogReg, setLoginReg] = useState(1); // 1 - login. 0 - register
-  var [Email, setEmail] = useState("");
-  var [pass, setPass] = useState("");
-  var [rPass, setRPass] = useState("");
+const Page: React.FC = () => {
+  const [type, setType] = useState(true); // true - вход, false - регистрация
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+  interface LoginPageForms{
+    placeholder: string,
+    type: 'text' | 'password' | 'email'
+  }
+  const { name } = useParams<{ name: string; }>();
+  const login : LoginPageForms[] = [
+    {
+      placeholder: "Email",
+      type: 'email',
+    },
+    {
+      placeholder: "Пароль",
+      type: 'password'
+    },
+  ]
+  const register : LoginPageForms[] = [
+    ...login,
+    {
+      placeholder: "Повторите пароль",
+      type: "password"
+    }
+  ]
   return (
     <IonPage>
-      <IonContent fullscreen>
-        <div className='loginBlock'>
-          <IonTitle>
-            <p className={LogReg ? "active" : ""} onClick={() => {setLoginReg(1)}}>Вход</p>
-            /
-            <p className={LogReg ? "" : "active"} onClick={() => {setLoginReg(0)}}>Регистрация</p>
-            </IonTitle>
-          <IonInput placeholder="Почта" onChange={(e) => {setEmail(e.currentTarget.value?.toString() || "")}}></IonInput>
-          <IonInput type='password' placeholder="Пароль" onChange={(e) => {setPass(e.currentTarget.value?.toString() || "")}}></IonInput>
-          {
-            LogReg ?
-              <IonInput placeholder="Подтвердите пароль" onChange={(e) => {setRPass(e.currentTarget.value?.toString() || "")}}></IonInput>
-            :
-              {}
-          }
-          {LogReg ? pass !== rPass ? <p>Пароли не сходятся</p> : {} : {}}
-          <IonButton placeholder={LogReg ? "Зарегистрироваться" : "Вход"} />
-          {LogReg ? <IonButton placeholder='Войти через ГосУслуги' /> : {}}
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
+        </IonToolbar>
+      </IonHeader>
 
-        </div>
+      <IonContent fullscreen>
+        <IonList className="profileList loginPage">
+          <h3 onClick={() => { setType(true) }} className={type ? "active" : ""}>Вход</h3>
+          <h3 onClick={() => { setType(false) }} className={type ? "" : "active"}>Регистрация</h3>
+          {
+            type ? 
+            login.map((val, idx, arr) => {
+              return(
+                <IonItem lines='none' key={idx}>
+                  <IonInput type={val.type} placeholder={val.placeholder}></IonInput>
+                </IonItem>
+              )
+            })
+            :
+            register.map((val, idx, arr) => {
+              return(
+                <IonItem lines='none' key={idx}>
+                  <IonInput type={val.type} placeholder={val.placeholder}></IonInput>
+                </IonItem>
+              )
+            })
+          }
+          <IonButton>{type ? "Войти" : "Зарегистрироваться"}</IonButton>
+          <hr className='line' />
+          <IonButton className="gosuslugi">Госуслуги</IonButton>
+        </IonList>
+
       </IonContent>
     </IonPage>
   );
 };
 
-export default LoginPage;
+export default Page;

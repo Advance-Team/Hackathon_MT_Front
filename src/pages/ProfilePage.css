@@ -1,0 +1,62 @@
+.profileList > ion-list:first-child{
+    margin-top: 5ch;
+    text-align: center;
+}
+
+.profileList > h2{
+    text-align: center;
+}
+
+.profileList > ion-item > img{
+    height: 30ch;
+    width: 30ch;
+    border-radius: 10%;
+    background-color: #000000;
+}
+
+.profileList > ion-item{
+    --background: unset;
+    margin: unset;
+}
+
+.profileList ion-input, 
+.profileList ion-select{
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    border-radius: 50px;
+    align-self: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+}
+
+.profileList > ion-button {
+    --background: black;
+    --color: white !important;
+    width: 70%;
+    height: 40px;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+.profileList > ion-item > ion-button > *{
+    color: white !important;
+}
+
+.profileList{
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    align-tracks: center;
+    text-align: center;
+}
+
+.profileList > ion-button{
+    border-radius: 40%;
+}
+
+.profileList ion-select{
+    width: 100%;
+}
